@@ -1,13 +1,17 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geofence Setup</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lora', serif; /* Minimalistic fancy font */
             background-color: #d9f0fb; /* Light baby blue background */
+            background-image: url('https://www.transparenttextures.com/patterns/flower-dots.png'); /* Subtle flower pattern */
+            background-repeat: repeat;
             margin: 0;
             padding: 0;
         }
@@ -20,27 +24,17 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
-        /* Add floral design pattern as a background */
-        .container::before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            right: -10px;
-            bottom: -10px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Blue_flower_pattern.svg/1024px-Blue_flower_pattern.svg.png'); /* Darker blue flower pattern */
-            background-size: contain;
-            opacity: 0.2;
-            pointer-events: none; /* Make sure it doesn't interfere with interaction */
-        }
         h1 {
             text-align: center;
             color: #333;
+            font-size: 2rem;
+            font-weight: 700;
         }
         label {
             display: block;
             margin: 10px 0 5px;
             font-size: 16px;
+            font-weight: 400;
         }
         input {
             width: 100%;
@@ -59,6 +53,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: 700;
         }
         button:hover {
             background-color: #001f4c; /* Darker shade for hover */
@@ -110,3 +105,4 @@
 
 </body>
 </html>
+
