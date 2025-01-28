@@ -1,121 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Specifies the character encoding for the HTML document -->
     <meta charset="UTF-8">
+    
+    <!-- Ensures the page is responsive on mobile devices (scalable) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title displayed on the browser tab -->
     <title>Geofence Setup</title>
-    <!-- Import Google Fonts -->
+
+    <!-- Import Google Fonts to use 'Lora' font style -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+        /* Body styling */
         body {
-            font-family: 'Lora', serif; /* Minimalistic fancy font */
-            background-color: #d9f0fb; /* Light baby blue background */
-            margin: 0;
-            padding: 0;
+            font-family: 'Lora', serif; /* Set the font to 'Lora' */
+            background-color: #d9f0fb; /* Set a light baby blue background color */
+            margin: 0; /* Remove any default margins */
+            padding: 0; /* Remove any default padding */
+            /* Create a pattern with radial gradients resembling flowers in the background */
             background-image: 
                 radial-gradient(circle at 20px 20px, #a8c6e5 20%, transparent 20%),
                 radial-gradient(circle at 60px 20px, #a8c6e5 20%, transparent 20%),
                 radial-gradient(circle at 20px 60px, #a8c6e5 20%, transparent 20%),
                 radial-gradient(circle at 60px 60px, #a8c6e5 20%, transparent 20%);
-            background-size: 80px 80px; /* Increase the space between the flowers */
-            background-repeat: repeat;
+            background-size: 80px 80px; /* Increase the space between the "flower" patterns */
+            background-repeat: repeat; /* Repeat the background pattern */
         }
 
+        /* Styling for the main container */
         .container {
-            max-width: 650px;
-            margin: 50px auto;
-            padding: 50px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            max-width: 650px; /* Limit container width to 650px */
+            margin: 50px auto; /* Center the container and add 50px space on top and bottom */
+            padding: 50px; /* Add 50px padding inside the container */
+            background-color: white; /* Set background color to white */
+            border-radius: 10px; /* Round the corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a soft shadow around the container */
+            position: relative; /* Set relative positioning */
         }
 
+        /* Styling for the main header (h1) */
         h1 {
-            text-align: center;
-            color: #333;
-            font-size: 2rem;
-            font-weight: 1000;
+            text-align: center; /* Center-align the header text */
+            color: #333; /* Set text color to dark gray */
+            font-size: 2rem; /* Set font size */
+            font-weight: 700; /* Set font weight to bold */
         }
 
+        /* Styling for label elements */
         label {
-            display: block;
-            margin: 10px 0 5px;
-            font-size: 16px;
-            font-weight: 400;
+            display: block; /* Make labels block-level elements (take up full width) */
+            margin: 10px 0 5px; /* Add vertical space around labels */
+            font-size: 16px; /* Set font size */
+            font-weight: 400; /* Set normal font weight */
         }
 
+        /* Styling for input fields */
         input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
+            width: 100%; /* Make input fields fill the entire width of the container */
+            padding: 10px; /* Add padding inside the input fields */
+            margin-bottom: 20px; /* Add space below each input */
+            border-radius: 5px; /* Round the corners of the input */
+            border: 1px solid #ccc; /* Light gray border */
+            font-size: 16px; /* Set font size */
         }
 
+        /* Styling for the button */
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: #002f6c; /* Very dark blue */
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
+            width: 100%; /* Make the button fill the entire width */
+            padding: 10px; /* Add padding inside the button */
+            background-color: #002f6c; /* Set button background to dark blue */
+            color: white; /* Set button text color to white */
+            font-size: 18px; /* Set font size */
+            border: none; /* Remove the default border */
+            border-radius: 5px; /* Round the corners of the button */
+            cursor: pointer; /* Change cursor to a pointer when hovering over the button */
+            font-weight: 700; /* Set font weight to bold */
         }
 
+        /* Button hover effect */
         button:hover {
-            background-color: #001f4c; /* Darker shade for hover */
+            background-color: #001f4c; /* Darken the button's background on hover */
         }
     </style>
 </head>
 <body>
 
+    <!-- Main container holding the form for geofence setup -->
     <div class="container">
         <h1>Geofence Setup</h1>
         
-        <!-- Form to enter geofence details -->
+        <!-- Form to collect geofence details -->
         <form id="geofenceForm">
+            <!-- Latitude input -->
             <label for="latitude">Latitude:</label>
-            <input type="text" id="latitude" name="latitude" required>
-
+            <input type="text" id="latitude" name="latitude" required> <!-- User must input a latitude value -->
+            
+            <!-- Longitude input -->
             <label for="longitude">Longitude:</label>
-            <input type="text" id="longitude" name="longitude" required>
-
+            <input type="text" id="longitude" name="longitude" required> <!-- User must input a longitude value -->
+            
+            <!-- Geofence range input -->
             <label for="range">Geofence Range (meters):</label>
-            <input type="number" id="range" name="range" required>
-
+            <input type="number" id="range" name="range" required> <!-- User must input a geofence range in meters -->
+            
+            <!-- Phone number input -->
             <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required>
-
+            <input type="text" id="phone" name="phone" required> <!-- User must input a phone number -->
+            
+            <!-- Button to trigger geofence setup -->
             <button type="button" onclick="sendData()">Set Geofence</button>
         </form>
     </div>
 
     <script>
-        // This function will be triggered when the "Set Geofence" button is clicked
+        // Function to send the form data when the "Set Geofence" button is clicked
         function sendData() {
+            // Get the values of each form input field by their id
             var latitude = document.getElementById("latitude").value;
             var longitude = document.getElementById("longitude").value;
             var range = document.getElementById("range").value;
             var phone = document.getElementById("phone").value;
 
-            // Combine the data into a comma-separated string
+            // Combine the values into a comma-separated string
             var data = latitude + "," + longitude + "," + range + "," + phone + "\n";
 
-            // Display the data in the console for debugging
+            // Log the data to the console for debugging purposes
             console.log("Data to send:", data);
 
-            // Here, you would normally send the data to the Arduino via USB or Serial (using WebSerial API)
-            // For this example, we're simply showing an alert for the user
+            // Display an alert to the user that the geofence settings have been sent
             alert("Geofence settings sent!");
+            
+            // In a real scenario, here you would send the data to a backend or an Arduino (via WebSerial API)
+            // This is a simplified version where we just display an alert instead of actually sending data
         }
     </script>
 
 </body>
 </html>
+
 
 
 
